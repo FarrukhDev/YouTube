@@ -9,6 +9,7 @@ from rest_framework.filters import SearchFilter
 class VideoListCreateAPIView(ListCreateAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+    filter_backends = [SearchFilter]
     search_fields = ['__all__']
 
 class CommentListCreateAPIView(ListCreateAPIView):
@@ -18,19 +19,23 @@ class CommentListCreateAPIView(ListCreateAPIView):
 class PlaylistListCreateAPIView(ListCreateAPIView):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
+    filter_backends = [SearchFilter]
     search_fields = ['__all__']
 
 class VideoRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+    filter_backends = [SearchFilter]
     search_fields = ['title','id']
 
 class CommentRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    filter_backends = [SearchFilter]
     search_fields = ['title','id']
 
 class PlaylistRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
+    filter_backends = [SearchFilter]
     search_fields = ['title','id']

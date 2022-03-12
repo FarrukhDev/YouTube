@@ -7,6 +7,7 @@ from rest_framework.filters import SearchFilter
 class UserListCreateAPIView(ListCreateAPIView):
     queryset = Account.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [SearchFilter]
     search_fields = ["name"]
 
     def get_object(self):
@@ -15,6 +16,7 @@ class UserListCreateAPIView(ListCreateAPIView):
 class UserRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Account.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [SearchFilter]
     search_fields = ["name"]
 
     def get_object(self):
